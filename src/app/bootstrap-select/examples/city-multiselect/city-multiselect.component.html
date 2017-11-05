@@ -1,0 +1,8 @@
+<select bootstrapSelect [(ngModel)]="mySelections"
+        data-selected-text-format="static" title="Select Cities" multiple>
+  <option *ngFor="let option of options" [value]="option">{{option}}</option>
+</select>
+
+<ul *ngIf="mySelections && mySelections.length > 0">
+  <li *ngFor="let selection of mySelections">{{selection}}</li>
+</ul>
