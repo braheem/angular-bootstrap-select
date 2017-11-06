@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
 export class AppComponent {
 
   // an example string array for display on the city multiselect
-  private options = ['Toronto', 'Waterloo', 'London'];
+  private cityOptions = ['Toronto', 'Waterloo', 'London'];
 }
