@@ -12,10 +12,22 @@ export abstract class BaseBootstrapSelect {
   private _options: string[];
   private _optgroups: any[];
 
-  @Input()
-  private mySelections: string[];
+  private _mySelections: string | string[];
+
+  @Input() public set mySelections(value: string | string[]) {
+    this._mySelections = value;
+    // this is necessary for bootstrap-select to pickup the current selections
+    setTimeout(() => {
+      this.bootstrapSelectDirective.refresh();
+    });
+  }
+
+  public get mySelections() {
+    return this._mySelections;
+  }
+
   @Output()
-  private mySelectionsChange = new EventEmitter();
+  public mySelectionsChange = new EventEmitter();
 
   @Input()
   set options(options: string[]) {
