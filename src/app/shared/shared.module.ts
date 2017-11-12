@@ -3,7 +3,9 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { BootstrapSelectDirective } from './bootstrap-select/bootstrap-select.directive';
-import { CityMultiselectComponent } from './bootstrap-select/examples/city-multiselect/city-multiselect.component';
+import { CityMultiselectStringComponent } from './bootstrap-select/examples/city-multiselect/city-multiselect-string.component';
+import { CityMultiselectObjectComponent } from './bootstrap-select/examples/city-multiselect/city-multiselect-object.component';
+
 
 @NgModule({
   imports: [
@@ -12,11 +14,13 @@ import { CityMultiselectComponent } from './bootstrap-select/examples/city-multi
   ],
   declarations: [
     BootstrapSelectDirective,
-    CityMultiselectComponent
+    CityMultiselectStringComponent,
+    CityMultiselectObjectComponent
   ],
   exports: [
     BootstrapSelectDirective,
-    CityMultiselectComponent
+    CityMultiselectStringComponent,
+    CityMultiselectObjectComponent
   ]
 })
 export class SharedModule { }

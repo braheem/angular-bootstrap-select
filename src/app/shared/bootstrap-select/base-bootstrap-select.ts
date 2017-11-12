@@ -2,19 +2,20 @@ import { Input, Output, ViewChild, EventEmitter } from '@angular/core';
 import { BootstrapSelectDirective } from './bootstrap-select.directive';
 
 /**
- * Base class to extend for any custom bootstrap-select based component
+ * Base class to extend for a bootstrap-select based component
  */
 export abstract class BaseBootstrapSelect {
 
   @ViewChild(BootstrapSelectDirective)
   bootstrapSelectDirective: BootstrapSelectDirective;
 
-  private _options: string[];
+  private _options: any[];
   private _optgroups: any[];
 
-  private _mySelections: string | string[];
+  private _mySelections: any | any[];
 
-  @Input() public set mySelections(value: string | string[]) {
+  // accept a single string or an array of strings to support both single and multiselect
+  @Input() public set mySelections(value: any | any[]) {
     this._mySelections = value;
     // this is necessary for bootstrap-select to pickup the current selections
     setTimeout(() => {
@@ -30,7 +31,7 @@ export abstract class BaseBootstrapSelect {
   public mySelectionsChange = new EventEmitter();
 
   @Input()
-  set options(options: string[]) {
+  set options(options: any[]) {
     this._options = options;
     setTimeout(() => {
       this.bootstrapSelectDirective.refresh();

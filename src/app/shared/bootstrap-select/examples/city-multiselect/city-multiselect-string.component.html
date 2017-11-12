@@ -1,6 +1,8 @@
+<p>Dropdown for CityMultiselectString component</p>
+
 <select bootstrapSelect [(ngModel)]="mySelections"
         data-selected-text-format="static" title="Select Cities" multiple>
-  <option *ngFor="let option of options" [value]="option">{{option}}</option>
+  <option *ngFor="let city of options" [value]="city">{{city}}</option>
 </select>
 
 <ul *ngIf="mySelections && mySelections.length > 0">
