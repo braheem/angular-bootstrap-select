@@ -3,7 +3,7 @@
 <!-- the built-in compareWith directive below is necessary when using Objects for option values -->
 <select [compareWith]="compareCities" bootstrapSelect [(ngModel)]="selectedCities"
         data-selected-text-format="static" title="Select Cities" multiple>
-  <option *ngFor="let city of cities" [ngValue]="city">{{city.name}}</option>
+  <option *ngFor="let city of cities" [ngValue]="city" id="{{city.name}}">{{city.name}}</option>
 </select>
 
 <ul *ngIf="mySelections && mySelections.length > 0">

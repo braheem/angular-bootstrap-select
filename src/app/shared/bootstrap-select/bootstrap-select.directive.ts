@@ -30,4 +30,20 @@ export class BootstrapSelectDirective implements OnInit, OnDestroy {
   refresh() {
     jQuery(this.el).selectpicker('refresh');
   }
+
+  /**
+   * Manually dispatch a change event to let Angular know of a programmatic change to the select
+   */
+  triggerChangeEvent() {
+    this.el.dispatchEvent(new Event('change', { 'bubbles': true }));
+  }
+
+  /**
+   * Select an option in this select by it's id
+   * @param id
+   */
+  selectOptionById(id) {
+    jQuery(this.el).find('#'.concat(id)).prop('selected', true);
+    this.triggerChangeEvent();
+  }
 }

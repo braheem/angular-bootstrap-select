@@ -51,5 +51,7 @@ export abstract class BaseBootstrapSelect {
     return this._optgroups;
   }
 
-  constructor() { }
+  selectOptionById(id) {
+    this.bootstrapSelectDirective.selectOptionById(id);
+  }
 }

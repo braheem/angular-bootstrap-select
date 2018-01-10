@@ -1,2 +1,10 @@
 <city-multiselect-string [options]="cityStringOptions" [(mySelections)]="myCitiesString"></city-multiselect-string>
-<city-multiselect-object [options]="cityObjOptions" [(mySelections)]="myCitiesObj"></city-multiselect-object>
+<hr/>
+<city-multiselect-object #citymultiselectobject [options]="cityObjOptions" [(mySelections)]="myCitiesObj"></city-multiselect-object>
+<hr/>
+<p>Below is a vanilla select used to demo selecting options from CityMultiselectObject component programmatically.</p>
+<p>Select an option here to also programmatically select it in the above CityMultiselectObject.
+  This is just for an example and ONLY triggers a selection if the option in this dropdown is actually changed</p>
+<select (change)="citymultiselectobject.selectOptionById($event.target.value)">
+  <option *ngFor="let city of citymultiselectobject.cities" [value]="city.name">{{city.name}}</option>
+</select>
