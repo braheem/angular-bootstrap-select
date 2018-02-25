@@ -17,6 +17,8 @@ export abstract class BaseBootstrapSelect {
   // accept a single string or an array of strings to support both single and multiselect
   @Input() public set mySelections(value: any | any[]) {
     this._mySelections = value;
+    this.mySelectionsChange.emit(value);
+
     // this is necessary for bootstrap-select to pickup the current selections
     setTimeout(() => {
       this.bootstrapSelectDirective.refresh();
