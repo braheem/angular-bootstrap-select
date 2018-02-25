@@ -17,10 +17,14 @@ export class BootstrapSelectDirective implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    jQuery(this.el).selectpicker({
-      iconBase: 'fa',
-      tickIcon: 'fa-check'
+    // wrapping in setTimeout to delay init until after attribute binding
+    setTimeout(() => {
+      jQuery(this.el).selectpicker({
+        iconBase: 'fa',
+        tickIcon: 'fa-check'
+      });
     });
+
   }
 
   ngOnDestroy() {
@@ -39,7 +43,7 @@ export class BootstrapSelectDirective implements OnInit, OnDestroy {
   }
 
   /**
-   * Select an option in this select by it's id
+   * Select an option in this select by id
    * @param id
    */
   selectOptionById(id) {

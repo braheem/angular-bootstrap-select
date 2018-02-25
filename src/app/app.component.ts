@@ -6,7 +6,7 @@ import {City} from './shared/bootstrap-select/examples/city-multiselect/city';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit, AfterViewInit{
+export class AppComponent implements OnInit, AfterViewInit {
 
   // an example string array for display on the city string multiselect
   private cityStringOptions: Array<String>;
